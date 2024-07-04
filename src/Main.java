@@ -30,7 +30,8 @@ public class Main {
 
 
         Optional<Car> maxMileageCar = cars.stream()
-                .filter(car -> (car.getBrand().startsWith("V") || car.getBrand().startsWith("W")) && car.getMileage() <= 200000)
+                .filter(car -> car.getBrand().startsWith("V") || car.getBrand().startsWith("W"))
+                .filter(car -> car.getMileage() <= 200000)
                 .max((car1, car2) -> Integer.compare(car1.getMileage(), car2.getMileage()));
         maxMileageCar.ifPresent(car -> System.out.println("Машина с маркой на \"V\" или \"W\" и пробегом не более 200 000: " + car));
     }
